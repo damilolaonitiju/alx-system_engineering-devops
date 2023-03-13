@@ -1,0 +1,2 @@
+#!/bin/bash
+ip=$(ip address| awk '/inet/ {print $2}' | grep -v ^::1 | grep -v ^127)
