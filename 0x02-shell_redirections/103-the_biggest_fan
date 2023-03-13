@@ -1,2 +1,8 @@
 #!/bin/bash
-ip=$(ip address| awk '/inet/ {print $2}' | grep -v ^::1 | grep -v ^127)
+ip_addresses=$(hostname -I)
+ip_addresses=(${ip_addresses//" "/ })
+echo "LIST OF IP ADDRESSES"
+for ip in "${ip_addresses[@]}";
+do
+  printf "$ip\n"
+done
